@@ -1,0 +1,150 @@
+eaf159d0-c394-11e5-ae83-005056a9a3c9
+
+
+
+GET ALL ENDPOINTS: Result
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ns3:searchResult total="14" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns3="ers.ise.cisco.com">
+    <resources>
+        <resource id="eaf159d0-c394-11e5-ae83-005056a9a3c9" name="00:50:56:A9:23:FB">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/eaf159d0-c394-11e5-ae83-005056a9a3c9" type="application/xml"/>
+        </resource>
+        <resource id="e8010810-fd0e-11e6-8f9c-005056a99b3a" name="00:50:56:A9:B3:10">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/e8010810-fd0e-11e6-8f9c-005056a99b3a" type="application/xml"/>
+        </resource>
+        <resource id="4a3cf4b0-fe01-11e6-ba19-005056a9d0af" name="00:50:56:A9:DD:61">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/4a3cf4b0-fe01-11e6-ba19-005056a9d0af" type="application/xml"/>
+        </resource>
+        <resource id="6ebd0650-caf8-11e5-a571-005056aa2ebf" name="00:50:56:AA:3F:E8">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/6ebd0650-caf8-11e5-a571-005056aa2ebf" type="application/xml"/>
+        </resource>
+        <resource id="aed8e870-bebf-11e5-a73e-005056aa1038" name="00:50:56:AA:5F:88">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/aed8e870-bebf-11e5-a73e-005056aa1038" type="application/xml"/>
+        </resource>
+        <resource id="67d1c170-c137-11e5-84e3-005056aac7bb" name="00:50:56:AA:AA:6A">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/67d1c170-c137-11e5-84e3-005056aac7bb" type="application/xml"/>
+        </resource>
+        <resource id="56b2a820-d751-11e5-a3f1-005056aa6beb" name="00:50:56:AA:C5:EC">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/56b2a820-d751-11e5-a3f1-005056aa6beb" type="application/xml"/>
+        </resource>
+        <resource id="65f3dfa0-c69b-11e5-ab6d-005056ab7fde" name="00:50:56:AB:41:06">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/65f3dfa0-c69b-11e5-ab6d-005056ab7fde" type="application/xml"/>
+        </resource>
+        <resource id="108f9a10-c063-11e5-90ba-005056abafb4" name="00:50:56:AB:FD:2F">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/108f9a10-c063-11e5-90ba-005056abafb4" type="application/xml"/>
+        </resource>
+        <resource id="b5937260-c6a9-11e5-b405-005056ac5a90" name="00:50:56:AC:68:C1">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/b5937260-c6a9-11e5-b405-005056ac5a90" type="application/xml"/>
+        </resource>
+        <resource id="b63d4c70-c534-11e5-8081-005056acdee9" name="00:50:56:AC:B5:58">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/b63d4c70-c534-11e5-8081-005056acdee9" type="application/xml"/>
+        </resource>
+        <resource id="d1184f60-c366-11e5-b99c-005056ac6c12" name="00:50:56:AC:B8:27">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/d1184f60-c366-11e5-b99c-005056ac6c12" type="application/xml"/>
+        </resource>
+        <resource id="8758db60-d793-11e5-9bc8-005056ac984b" name="00:50:56:AC:D0:04">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/8758db60-d793-11e5-9bc8-005056ac984b" type="application/xml"/>
+        </resource>
+        <resource id="8b8f83d0-9ef6-11e5-a0fa-005056b8498e" name="00:50:56:B8:2D:BE">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/8b8f83d0-9ef6-11e5-a0fa-005056b8498e" type="application/xml"/>
+        </resource>
+    </resources>
+</ns3:searchResult>
+
+
+GET ENDPOINT BY ID 
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ns4:endpoint id="eaf159d0-c394-11e5-ae83-005056a9a3c9" name="00:50:56:A9:23:FB" xmlns:ers="ers.ise.cisco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="identity.ers.ise.cisco.com">
+    <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/eaf159d0-c394-11e5-ae83-005056a9a3c9" type="application/xml"/>
+    <groupId>6f728d30-6d8e-11e5-978e-005056bf2f0a</groupId>
+    <identityStore></identityStore>
+    <identityStoreId></identityStoreId>
+    <mac>00:50:56:A9:23:FB</mac>
+    <portalUser></portalUser>
+    <profileId>787252d0-6d8e-11e5-978e-005056bf2f0a</profileId>
+    <staticGroupAssignment>false</staticGroupAssignment>
+    <staticProfileAssignment>false</staticProfileAssignment>
+</ns4:endpoint>
+
+
+
+GET NETWORK DEVICE ALL
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ns3:searchResult total="2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns3="ers.ise.cisco.com">
+    <resources>
+        <resource description="ASAv" id="1e1323e0-9d55-11e5-a76f-005056b8498e" name="ASAv">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/networkdevice/1e1323e0-9d55-11e5-a76f-005056b8498e" type="application/xml"/>
+        </resource>
+        <resource id="2ad5a270-c126-11e5-a0f0-005056ab1860" name="N1Kv">
+            <link rel="self" href="https://198.19.10.27:9060/ers/config/networkdevice/2ad5a270-c126-11e5-a0f0-005056ab1860" type="application/xml"/>
+        </resource>
+    </resources>
+</ns3:searchResult>
+
+
+
+GET NETWORK DEVICE BY ID
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ns4:networkdevice description="ASAv" id="1e1323e0-9d55-11e5-a76f-005056b8498e" name="ASAv" xmlns:ers="ers.ise.cisco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="network.ers.ise.cisco.com">
+    <link rel="self" href="https://198.19.10.27:9060/ers/config/networkdevice/1e1323e0-9d55-11e5-a76f-005056b8498e" type="application/xml"/>
+    <authenticationSettings>
+        <enableKeyWrap>false</enableKeyWrap>
+        <keyInputFormat>ASCII</keyInputFormat>
+        <networkProtocol>RADIUS</networkProtocol>
+        <radiusSharedSecret>******</radiusSharedSecret>
+    </authenticationSettings>
+    <coaPort>1700</coaPort>
+    <NetworkDeviceIPList>
+        <NetworkDeviceIP>
+            <ipaddress>198.19.10.100</ipaddress>
+            <mask>32</mask>
+        </NetworkDeviceIP>
+    </NetworkDeviceIPList>
+    <NetworkDeviceGroupList>
+        <NetworkDeviceGroup>Location#All Locations</NetworkDeviceGroup>
+        <NetworkDeviceGroup>Device Type#All Device Types#Firewalls</NetworkDeviceGroup>
+    </NetworkDeviceGroupList>
+    <profileName>Cisco</profileName>
+    <trustsecsettings>
+        <deviceAuthenticationSettings>
+            <sgaDeviceId>ASAv</sgaDeviceId>
+            <sgaDevicePassword>******</sgaDevicePassword>
+        </deviceAuthenticationSettings>
+        <deviceConfigurationDeployment>
+            <includeWhenDeployingSGTUpdates>false</includeWhenDeployingSGTUpdates>
+        </deviceConfigurationDeployment>
+        <sgaNotificationAndUpdates>
+            <downlaodEnvironmentDataEveryXSeconds>900</downlaodEnvironmentDataEveryXSeconds>
+            <downlaodPeerAuthorizationPolicyEveryXSeconds>900</downlaodPeerAuthorizationPolicyEveryXSeconds>
+            <downloadSGACLListsEveryXSeconds>86400</downloadSGACLListsEveryXSeconds>
+            <otherSGADevicesToTrustThisDevice>false</otherSGADevicesToTrustThisDevice>
+            <reAuthenticationEveryXSeconds>86400</reAuthenticationEveryXSeconds>
+            <sendConfigurationToDevice>false</sendConfigurationToDevice>
+            <sendConfigurationToDeviceUsing>DISABLE_ALL</sendConfigurationToDeviceUsing>
+        </sgaNotificationAndUpdates>
+    </trustsecsettings>
+</ns4:networkdevice>
+
+
+
+
+
+4a3cf4b0-fe01-11e6-ba19-005056a9d0af
+
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ns4:endpoint id="4a3cf4b0-fe01-11e6-ba19-005056a9d0af" name="00:50:56:A9:DD:61" xmlns:ers="ers.ise.cisco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="identity.ers.ise.cisco.com">
+    <link rel="self" href="https://198.19.10.27:9060/ers/config/endpoint/4a3cf4b0-fe01-11e6-ba19-005056a9d0af" type="application/xml"/>
+    <groupId>6f728d30-6d8e-11e5-978e-005056bf2f0a</groupId>
+    <identityStore></identityStore>
+    <identityStoreId></identityStoreId>
+    <mac>00:50:56:A9:DD:61</mac>
+    <portalUser></portalUser>
+    <profileId>787252d0-6d8e-11e5-978e-005056bf2f0a</profileId>
+    <staticGroupAssignment>false</staticGroupAssignment>
+    <staticProfileAssignment>false</staticProfileAssignment>
+</ns4:endpoint>
