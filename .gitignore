@@ -1,6 +1,6 @@
 *.jpg
 settings.py
-
+isemab/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
