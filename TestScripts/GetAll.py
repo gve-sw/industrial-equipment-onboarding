@@ -8,8 +8,8 @@ headers = {
     'accept': "application/vnd.com.cisco.ise.identity.endpoint.1.0+xml"
     }
 
-user = 'ERSAdmin'
-pwd = 'C1sco12345'
+user = XXXXXX
+pwd = XXXXXX
 
 response = requests.request("GET", url, auth=(user,pwd), headers=headers, verify=False)
 

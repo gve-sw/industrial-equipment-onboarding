@@ -1,9 +1,7 @@
 from ISEAPI import ISEAPI
 import re
 
-server = "198.19.10.27"
-username = "ERSAdmin"
-password = "C1sco12345"
+
 
 
 r = ISEAPI(server, username, password)

@@ -1,15 +1,4 @@
-"""
-access
-YTgzMzQ1ZGUtNzQ5Yy00MjY2LThlYmItM2JlZjM4ZjM3YzkzZTk4ZDk2ZTUtYjEy
 
-
-
-room
-Y2lzY29zcGFyazovL3VzL1JPT00vNWU4ZGEwMzItMTc3Ni0zODhmLTg4YWItODRkZmNkZGVjYWVl
-"""
-
-#my actor ID Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wNmE0ODJhNy00NjEzLTRiN2MtYWYxZi1kMzI2ZDZhNzQyZGQ
-#bot actor ID Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zN2E0MmY3NS05YzBkLTQxMjMtYjgyMS01MDY0NjQyZTg0NTc
 
 
 
@@ -19,13 +8,7 @@ from ISEAPI import SparkAPI
 from ISEAPI import ISEAPI
 import re
 
-server = "198.19.10.27"
-username = "ERSAdmin"
-password = "C1sco12345"
 
-roomID = "Y2lzY29zcGFyazovL3VzL1JPT00vNWU4ZGEwMzItMTc3Ni0zODhmLTg4YWItODRkZmNkZGVjYWVl"
-botToken = "YTgzMzQ1ZGUtNzQ5Yy00MjY2LThlYmItM2JlZjM4ZjM3YzkzZTk4ZDk2ZTUtYjEy"
-botID = "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zN2E0MmY3NS05YzBkLTQxMjMtYjgyMS01MDY0NjQyZTg0NTc"
 
 ISEReq = ISEAPI(server, username, password)
 maccheck = re.compile('^([0-9A-Fa-f]{2}[:.-]){5}([0-9A-Fa-f]{2})$')
