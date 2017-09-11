@@ -1,5 +1,6 @@
 #
-#   Dan Kirkwood (dkirkwoo@cisco.com)
+#   	
+#		Dan Kirkwood (dkirkwoo@cisco.com) & Hantzley Tauckoor (htauckoo@cisco.com)
 #       August 2017
 #
 #       This application uses a Spark chat interface to update the MAC Authentication Bypass (MAB) database in ISE
@@ -29,10 +30,19 @@ ISEAPI: Generic API calls for ISE and Spark
 re: Regex for checking input towards Spark
 io: Store MAC data in local file
 os: Check if previous data exists
-readSettings: File defining local settings used to run program. See readSettings.py
+Settings: Settings file containing: 
+	ISE server IP
+	ISE ERS username
+	ISE ERS password
+	Spark Room ID
+	Spark Bot token
+	Spark Bot ID
+google.cloud.vision: For image recognition
+logging: for debug
+
 """
 
-import requests
+
 from flask import Flask, request, session, redirect 
 import json
 from ISEAPI import SparkAPI
@@ -40,33 +50,15 @@ from ISEAPI import ISEAPI
 import re
 import io
 import os
+import requests
 import settings
 from google.cloud import vision
 from google.cloud.vision import types
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-"""
-Load settings from local text file
-Requires the following, separated by a new line each:
-	ISE server IP
-	ISE ERS username
-	ISE ERS password
-	Spark Room ID
-	Spark Bot token
-	Spark Bot ID
 
-setList = readSettings.loadSettings("settings.txt")
-
-server = setList[0].rstrip()
-username = setList[1].rstrip()
-password = setList[2].rstrip()
-
-roomID = setList[3].rstrip()
-botToken = setList[4].rstrip()
-botID = setList[5].rstrip()
-"""
-
+# Assign variables from settings file
 server = settings.server
 username = settings.username
 password = settings.password
@@ -78,11 +70,13 @@ botID = settings.botID
 # Invoke ISEAPI class giving the server IP, username and password
 ISEReq = ISEAPI(server, username, password)
 
+# Invoke Spark API giving the Room that will be used and the Spark Token for the Bot
 sparkCall = SparkAPI(roomID, botToken)
 
 # Check input to ensure it is a valid 48bit hexadecimal MAC address. Valid delimiters are : , . and -
 maccheck = re.compile('^([0-9A-Fa-f]{2}[:.-]){5}([0-9A-Fa-f]{2})$')
 
+# Create variable for the file which will be downloaded from Spark
 filename = None
 
 
@@ -155,7 +149,7 @@ def oldMacCheck(macAddress):
 				
 
 	else:
-		#return 'NOTMAC'
+		# Inform user that they have not input a valid MAC address
 		payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \""+oldMac+" does not appear to be a valid MAC address. Please ensure you enter 12 hexadecimal characters in pairs separated by ':'' , '.'' or '-'. For example aa:bb:cc:11:22:33\"\n}"
 
 		sparkCall.POSTMessage(payload)
@@ -181,7 +175,7 @@ def newMacCreate(macAddress, oldDeviceID, oldGroupID, oldProfileID):
 			return "OK"
 
 	else:
-		#return 'NOTMAC'
+		# Inform user that the MAC address was not input correctly
 		payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \""+newmac+" does not appear to be a valid MAC address. Please ensure you enter 12 hexadecimal characters in pairs separated by ':'' , '.'' or '-'. For example aa:bb:cc:11:22:33\"\n}"
 
 		sparkCall.POSTMessage(payload)
@@ -211,8 +205,7 @@ def listener():
 
 		
 		if 'files' not in prettymessage:
-			print "not a file :("
-			#return "OK"
+			# Testing if the user has posted either a file or a message, in this case just a message
 			
 			# Check if the user is describing the old MAC
 			if prettymessage["text"][0] in ("O", "o"):
@@ -252,11 +245,8 @@ def listener():
 
 
 		elif 'files' in prettymessage:
-			#print "this is a file"
-			#return "OK"
-		
+			# If a file was posted in the room
 
-			print 'I found a file!!'
 			image_is_in_Spark = True
 	        headers = {
 	            'authorization': "Bearer " + botToken,
@@ -271,8 +261,9 @@ def listener():
 	            print (imgHeaders)
 
 	            if 'image' in imgHeaders['Content-Type']:
+	            	# Strip extra data to record just the file name
 	                filename = imgHeaders['Content-Disposition'].replace("attachment; ", "").replace('filename', '').replace('=', '').replace('"', '')
-	            	print filename
+	            	# Download the file locally
 	            	with open(filename, 'wb') as f:
 		            	print "writing file..."
 		            	os.chmod(filename, 0o777)
@@ -282,20 +273,21 @@ def listener():
 		        print detectedMac
 
 		        if detectedMac == False:
-
+		        	# If the image recognition did not find a MAC, inform the user
 			        payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \"No MAC address detected in image.\"\n}"
 			        sparkCall.POSTMessage(payload)
 
 			        return "OK"
 
 		        if prettymessage["text"][0] in ("O", "o"):
+		        	# If a MAC was detected, check that it is in ISE
 		        	check = oldMacCheck(detectedMac)
 
 		        elif prettymessage["text"][0] in ("N", "n"):
 				# Check that the user has already entered information on the old MAC address
 
 					if os.path.isfile('data.json') == True:
-						# If so, load the specific 
+						# If so, load the specific data
 						with open('data.json') as data_file:
 							data_loaded = json.load(data_file)
 					# Otherewise, inform the user that they need to enter the MAC of the old device
@@ -325,24 +317,7 @@ def listener():
 			
 		
 		else:
-			print "how did u get here"
 			return "OK"
-			
-			
-				
-			"""
-			# Check that the create was successful, if so inform the user and delete the local file describing the old device
-			if creator == True:
-				payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \"Device with mac "+macOnly+" is now authorised to access the network.\"\n}"
-				sparkCall.POSTMessage(payload)
-				os.remove('data.json')				
-				return "OK"
-			# If the user has entered an incorrect MAC address, inform the user
-			elif creator == 'NOTMAC':
-				payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \""+macOnly+" does not appear to be a valid MAC address. Please ensure you enter 12 hexadecimal characters in pairs separated by ':'' , '.'' or '-'. For example aa:bb:cc:11:22:33\"\n}"
-
-				sparkCall.POSTMessage(payload)
-			"""
 
 
 # Runs the listener on port 80
