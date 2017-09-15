@@ -35,7 +35,7 @@ class ISEAPI(object):
 
 	def ISEGETE(self, url, headers):
 		"""
-		Generic GET request using Etree to parse data
+		Generic GET request using Etree to parse XML data
 		"""
 
 		try:
