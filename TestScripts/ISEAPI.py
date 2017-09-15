@@ -49,7 +49,7 @@ class ISEAPI(object):
 		except requests.exceptions.HTTPError as err:
 			print ("Error in connection -->"+str(err))
 		finally:
-			if response : response.close()
+			print ("No connection available")
 
 
 	def ISEGETX(self, url, headers):
