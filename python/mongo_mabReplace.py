@@ -149,8 +149,10 @@ def oldMacCheck(macAddress):
             oldDeviceInfo = ISEReq.GetEndpointByID(deviceID)    
             data = oldDeviceInfo
 
+            #Remove any prior entries in the DB to ensure only one state at a time
             stateDB.stateTable.delete_many({})
 
+            #Add the detail about the old device to the DB
             stateTable.insert_one(data)
             """
             with io.open('data.json', 'w', encoding='utf8') as outfile:
@@ -193,7 +195,7 @@ def newMacCreate(macAddress, oldDeviceID, oldGroupID, oldProfileID):
         if doCreate == True:
             # If the create function was successful, remove the old device
             deleter = ISEReq.DeleteEndpoint(oldDeviceID)
-            payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \"Device with MAC "+newmac+" is now authorised to access the network.\"\n}"
+            payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \"Device with MAC "+newmac+" can now access the network.\"\n}"
             sparkCall.POSTMessage(payload)
             #os.remove('data.json')                
             return "OK"
@@ -313,10 +315,13 @@ def listener():
                 elif prettymessage["text"][0] in ("N", "n"):
                 # Check that the user has already entered information on the old MAC address
 
-                    if os.path.isfile('data.json') == True:
-                        # If so, load the specific data
-                        with open('data.json') as data_file:
-                            data_loaded = json.load(data_file)
+
+
+                    dataCheck = stateTable.find_one()
+                    if dataCheck is not None:
+                        data_loaded = dataCheck
+
+
                     # Otherewise, inform the user that they need to enter the MAC of the old device
                     else:
                         payload = "{\n  \"roomId\" : \""+roomID+"\",\n  \"text\" : \"You have not yet entered data on the device you would like to replace. Identify the old device using \'old AA:BB:CC:11:22:33\'\"\n}"
@@ -326,9 +331,10 @@ def listener():
                         return "OK"                    
 
                     # Load specific data from the old device that will be used to set up the new device with the same parameters
-                    oldDeviceID = data_loaded["ns4:endpoint"]["@id"]
-                    oldGroupID = data_loaded["ns4:endpoint"]["groupId"]
-                    oldProfileID = data_loaded["ns4:endpoint"]["profileId"]
+                    
+                    oldDeviceID = data_loaded["ERSEndPoint"]["id"]
+                    oldGroupID = data_loaded["ERSEndPoint"]["groupId"]
+                    oldProfileID = data_loaded["ERSEndPoint"]["profileId"]
 
                     # Use the new MAC with the information from the old device to create the new device
                     creator = newMacCreate(detectedMac, oldDeviceID, oldGroupID, oldProfileID)
