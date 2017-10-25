@@ -1,6 +1,8 @@
+
 *.jpg
 settings.py
 isemab/
+python/my-vision-test-1e04f7ada5bc.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
