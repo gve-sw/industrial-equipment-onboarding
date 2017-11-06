@@ -71,6 +71,7 @@ botID = settings.botID
 
 mongoAddr = settings.mongoAddr
 
+
 # Invoke ISEAPI class giving the server IP, username and password
 ISEReq = ISEAPI(server, username, password)
 
@@ -87,6 +88,11 @@ client = MongoClient(mongoAddr)
 
 stateDB = client.stateDB
 stateTable = stateDB.stateTable
+
+
+
+
+
 
 
 def detect_mac_address(path):

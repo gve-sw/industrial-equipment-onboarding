@@ -23,6 +23,25 @@ services:
         ipv4_address: 172.29.0.20
     container_name: database
 
+  ngrok:
+    build: ./ngrok
+    ports:
+      - "32776:4040"
+      - "32778:80"
+    networks:
+      app-network:
+        ipv4_address: 172.29.0.30
+    container_name: ngrok
+
+  createwebhook:
+    build: ./createWebhook
+    networks:
+      app-network:
+        ipv4_address: 172.29.0.40
+    container_name: createwebhook
+    depends_on:
+      - ngrok
+
 
 networks:
   app-network:
