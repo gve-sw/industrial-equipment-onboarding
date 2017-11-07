@@ -180,8 +180,7 @@ class SparkAPI(object):
 	Requires a known bot ID and Room ID for retrieving and creating messages
 	"""
 
-	def __init__(self, roomID, botID):
-		self.roomID = roomID
+	def __init__(self, botID):
 		self.botID = botID
 
 	def SparkGET(self, url, headers):

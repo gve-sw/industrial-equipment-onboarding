@@ -1,6 +1,6 @@
 region: au
 tunnels:
   listener:
-    addr: 172.30.0.10:80
+    addr: 172.29.0.10:80
     proto: http
 web_addr: 0.0.0.0:4040

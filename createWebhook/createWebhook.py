@@ -1,5 +1,6 @@
 import settings
 import requests
+import time
 import json
 
 
@@ -12,27 +13,35 @@ botToken = settings.botToken
 
 def findNgrok():
     header = {'content-type' : "application/json"}
-    url = "http://172.30.0.30:4040/api/tunnels"
-    try:
-        response = requests.request("GET", url, headers=header, verify=False)
-        status_code = response.status_code
-        if (status_code == 200):
-            return json.loads(response.text)
-        else:
-            response.raise_for_status()
-            print("Error occured in GET -->"+(response.text))
-    except requests.exceptions.HTTPError as err:
-        print ("Error in connection -->"+str(err))
-    finally:
-        if response : response.close()
+    url = "http://172.29.0.30:4040/api/tunnels"
+    #url = "http://127.0.0.1:4040/api/tunnels"
+
+    while True:
+        try:
+            response = requests.request("GET", url, headers=header, verify=False)
+            status_code = response.status_code
+            if (status_code == 200):
+                resp =  json.loads(response.text)
+                if resp['tunnels']:
+                    return resp
+            else:
+                response.raise_for_status()
+                print("Error occured in GET -->"+(response.text))
+        except requests.exceptions.HTTPError as err:
+            print ("Error in connection -->"+str(err))
+        except requests.exceptions.ConnectionError as err:
+            pass
+        time.sleep(1)
+
 
 
 #Address of ngrok tunnel for Dev. Used as destination for Spark webhook notifications
 ngrokRaw = findNgrok()
-#print (ngrokRaw)
+print (ngrokRaw)
 for tun in ngrokRaw['tunnels']:
-    #print (tun['name'])
+    print (tun['name'])
     if tun['name'] == 'listener (http)':
+    #if tun['name'] == 'command_line (http)':    
         ngrokTunnel = tun['public_url']
         #print (ngrokTunnel)
         break
@@ -60,7 +69,7 @@ def update_webhook (the_headers,webhookName,webhookID,targetUrl):
 headers = set_headers(botToken)
 updateResult = update_webhook(headers, webhookName, webhookID, ngrokTunnel)
 
-if updateResult == '200':
+if updateResult == 200:
     print ('WebHook Updated')
 else:
     print (updateResult)
