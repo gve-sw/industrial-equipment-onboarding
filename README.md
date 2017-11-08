@@ -32,18 +32,7 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 1. Copy the Google Cloud Platform service account key JSON file into `/python`
 
-1. Edit /python/Dockerfile and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json` where the .json filename matches the name of the file you copied into /python.
+1. Edit `/python/Dockerfile` and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json` where the .json filename matches the name of the file you copied into /python.
 
-See ISEAPI.py for generic API calls to ISE and Spark
 
-See mabReplace.py for the main program logic
 
-Note currently this script requires a settings file containing the following: 
-* ISE Server IP
-* ISE ERS username
-* ISE ERS password
-* The Spark Room ID
-* The Spark Bot token
-* The Spark Bot ID
-
-In future revisions the process of retrieving this data and creating the settings file will be automated. 
