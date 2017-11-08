@@ -13,7 +13,8 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 ### Pre-requisites
 * [Docker](https://docs.docker.com/engine/installation/)
-⋅⋅⋅ [Docker Compose](https://docs.docker.com/compose/install/) is required. This is included in the install package for Mac and Windows, but must be installed separately on Linux
+   
+   [Docker Compose](https://docs.docker.com/compose/install/) is required. This is included in the install package for Mac and Windows, but must be installed separately on Linux
 *
 
 
