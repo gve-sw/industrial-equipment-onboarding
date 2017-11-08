@@ -12,9 +12,11 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 ## How to use this repository
 
 ### Pre-requisites
+* [Cisco Spark](https://www.ciscospark.com/) account. 
+* Spark Bot. See [here](https://developer.ciscospark.com/bots.html) to create your bot. You will need two pieces of information from your bot once it is created: The Bot Token and the Bot ID (more on these below).  
 * [Docker](https://docs.docker.com/engine/installation/) - The main application and supporting applications, as well as their dependencies are defined as containers. You could run all scripts on their own without Docker if you like a challenge :)
    
-   [Docker Compose](https://docs.docker.com/compose/install/) is required. This is included in the install package for Mac and Windows, but must be installed separately on Linux. 
+   [Docker Compose](https://docs.docker.com/compose/install/) is required. This is included in the Docker install package linked above for Mac and Windows, but must be installed separately on Linux. 
 *
 
 
