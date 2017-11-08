@@ -11,14 +11,17 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 ## How to use this repository
 
-### Pre-requisites
+### Before you begin - what do you need?
 * [Cisco Spark](https://www.ciscospark.com/) account. 
 * Spark Bot - See [here](https://developer.ciscospark.com/bots.html) to create your bot. You will need two pieces of information from your bot once it is created: The Bot Token and the Bot ID (more on these below).  
-* [Docker](https://docs.docker.com/engine/installation/) - The main application and supporting applications, as well as their dependencies are defined as containers. You could run all scripts on their own without Docker if you like a challenge :)
+* [Docker](https://docs.docker.com/engine/installation/) - The application environment for this project is defined in Docker containers. You could run all the scripts outside of Docker if you like a challenge. 
 * [Docker Compose](https://docs.docker.com/compose/install/) - This is included in the Docker install package linked above for Mac and Windows, but must be installed separately on Linux. 
-* [Google Cloud Platform](https://cloud.google.com/) account - Used to analyse images and extract the MAC address for this project. You will need to do two things once you have signed up for an account. 
+* [Google Cloud Platform](https://cloud.google.com/) account - Used to analyse images and extract MAC addreses for this project. You will need to do two things once you have signed up for an account. 
 	1. [Enable](https://cloud.google.com/vision/docs/before-you-begin) the vision API
 	1. [Create](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) a service account key. This will be used to allow the application to authenticate to the Google cloud. When you create this key you will receive a JSON file. Keep hold of it - we will use it soon. 
+
+
+### Instructions
 
 
 
