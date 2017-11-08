@@ -1,6 +1,11 @@
-# MAB device-replacement using Cisco Identity Services Engine (ISE) + Spark
+#IOT Device replacement in a Secure Access Network
 
-This project uses a Spark chat interface to give non-IT personnel the ability to replace network-connected devices that require MAC Authentication Bypass (MAB) in a secure network access environment.
+One of the big barriers of implementing secure network access in an Industrial environment is the increased risk of device downtime and the high overheads of managing an environment with thousands of devices. 
+
+Our project simplifies the process of adding and removing industrial network-connected devices into a secure network. Non-IT designated staff can use their smartphone or ruggardised tablet to perform this process in a couple of minutes, reducing downtime and lowering IT burden. 
+
+
+
 
 See ISEAPI.py for generic API calls to ISE and Spark
 
