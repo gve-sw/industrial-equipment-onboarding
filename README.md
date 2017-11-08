@@ -6,9 +6,15 @@ Our project simplifies the process of adding and removing industrial network-con
 
 ![alt text](https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/images/UserScenario.jpg "Scenario diagram")
 
-The image above shows a user with their phone updating the MAC address entries in ISE, allowing devices to be replaced on the floor within minutes. 
+The image above shows a user with [Spark](http://cisco.com/go/spark) on their phone updating MAC address entries in the [Identity Services Engine (ISE)](http://cisco.com/go/ise), allowing devices to be replaced on the floor within minutes. 
+MAC Addresses can be entered manually as text, or can be uploaded as an image taken by the phone's camera. 
 
 ## How to use this repository
+
+### Pre-requisites
+* [Docker](https://docs.docker.com/engine/installation/)
+⋅⋅⋅ [Docker Compose](https://docs.docker.com/compose/install/) is required. This is included in the install package for Mac and Windows, but must be installed separately on Linux
+*
 
 
 See ISEAPI.py for generic API calls to ISE and Spark
