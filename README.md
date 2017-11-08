@@ -26,7 +26,7 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 1. Ensure you have performed all the prerequisite actions in the 'Before you begin' section above
 
-1. Populate the `[settingsTemplate.py]`(https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/settingsTemplate.py) file with your ISE IP Address, ISE ERS API admin username and password, your Spark Bot Token and your Spark Bot ID. 
+1. Populate the `settingsTemplate.py` file with your ISE IP Address, ISE ERS API admin username and password, your Spark Bot Token and your Spark Bot ID. 
 
 1. Save the resulting file as `/python/settings.py` and `createWebhook/settings.py`
 
