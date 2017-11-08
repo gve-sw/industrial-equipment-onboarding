@@ -1,5 +1,5 @@
 
-*.jpg
+python/*.jpg
 settings.py
 isemab/
 python/my-vision-test-3964cbc2814c.json
