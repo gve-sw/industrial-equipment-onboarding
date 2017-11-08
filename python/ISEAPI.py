@@ -220,6 +220,19 @@ class SparkAPI(object):
 		finally:
 			if response : response.close()
 
+	def SparkJSONPOST(self, url, headers, payload):
+		try:
+			response = requests.request("POST", url, headers=headers, json=payload, verify=False)
+			status_code = response.status_code
+			if (status_code == 200):
+				return response.text
+			else:
+				response.raise_for_status()
+				print("Error occured in GET -->"+(response.text))
+		except requests.exceptions.HTTPError as err:
+			print ("Error in connection -->"+str(err))
+		finally:
+			if response : response.close()		
 
 
 	def GETMessage(self, messageID):
@@ -240,4 +253,8 @@ class SparkAPI(object):
 		headers = {'content-type' : 'application/json; charset=utf-8', 'authorization' : "Bearer "+self.botID}
 		return self.SparkPOST(url, headers, payload)
 
+	def POSTMarkdownMessage(self, payload):
 
+		url = 'https://api.ciscospark.com/v1/messages'
+		headers = {'content-type' : 'application/json; charset=utf-8', 'authorization' : "Bearer "+self.botID}
+		return self.SparkJSONPOST(url, headers, payload)
