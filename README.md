@@ -6,6 +6,10 @@ Our project simplifies the process of adding and removing industrial network-con
 
 ![alt text](https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/images/UserScenario.jpg "Scenario diagram")
 
+The image above shows a user with their phone updating the MAC address entries in ISE, allowing devices to be replaced on the floor within minutes. 
+
+## How to use this repository
+
 
 See ISEAPI.py for generic API calls to ISE and Spark
 
