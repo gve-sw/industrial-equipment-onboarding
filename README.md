@@ -4,7 +4,7 @@ One of the big barriers of implementing secure network access in an Industrial e
 
 Our project simplifies the process of adding and removing industrial network-connected devices into a secure network. Non-IT designated staff can use their smartphone or ruggardised tablet to perform this process in a couple of minutes, reducing downtime and lowering IT burden. 
 
-
+![alt text](https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/images/UserScenario.jpg "Scenario diagram")
 
 
 See ISEAPI.py for generic API calls to ISE and Spark
