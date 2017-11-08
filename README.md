@@ -1,4 +1,4 @@
-#IOT Device replacement in a Secure Access Network
+# IOT Device replacement in a Secure Access Network
 
 One of the big barriers of implementing secure network access in an Industrial environment is the increased risk of device downtime and the high overheads of managing an environment with thousands of devices. 
 
