@@ -26,13 +26,13 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 1. Ensure you have performed all the prerequisite actions in the 'Before you begin' section above
 
-1. Populate the [settingsTemplate.py](https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/settingsTemplate.py) file with your ISE IP Address, ISE ERS API admin username and password, your Spark Bot Token and your Spark Bot ID. 
+1. Populate the `[settingsTemplate.py](https://github.com/cisco-gve/industrial-equipment-onboarding/blob/master/settingsTemplate.py)` file with your ISE IP Address, ISE ERS API admin username and password, your Spark Bot Token and your Spark Bot ID. 
 
-1. Save the resulting file as /python/settings.py and createWebhook/settings.py
+1. Save the resulting file as `/python/settings.py` and `createWebhook/settings.py`
 
-1. Copy the Google Cloud Platform service account key JSON file into /python
+1. Copy the Google Cloud Platform service account key JSON file into `/python`
 
-1. Edit /python/Dockerfile and change the line: ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json where the .json filename matches the name of the file you copied into /python.
+1. Edit /python/Dockerfile and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json` where the .json filename matches the name of the file you copied into /python.
 
 See ISEAPI.py for generic API calls to ISE and Spark
 
