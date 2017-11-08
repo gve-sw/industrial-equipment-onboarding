@@ -34,5 +34,5 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 1. Edit `/python/Dockerfile` and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json` where the .json filename matches the name of the file you copied into /python.
 
-
+1. Run `docker-compose up` from the project root directory
 
