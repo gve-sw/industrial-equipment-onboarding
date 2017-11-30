@@ -244,6 +244,15 @@ class SparkAPI(object):
 		headers = {'content-type' : 'application/json; charset=utf-8', 'authorization' : "Bearer "+self.botID}
 		return self.SparkGET(url, headers)
 
+	def GETPerson(self, userID):
+		"""
+		Get details of a Spark user
+		"""
+
+		url = 'https://api.ciscospark.com/v1/people/'+userID
+		headers = {'content-type' : 'application/json; charset=utf-8', 'authorization' : "Bearer "+self.botID}
+		return self.SparkGET(url, headers)
+
 	def POSTMessage(self, payload):
 		"""
 		Create a message in Spark

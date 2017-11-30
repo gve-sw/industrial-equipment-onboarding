@@ -359,10 +359,16 @@ def listener():
 
 
         elif helpCheck.search(justText):
+
+            botDetails = sparkCall.GETPerson(botID)
+            botDetailsDict = json.loads(botDetails)
+
+            botName = botDetailsDict['displayName']
+
             helpmsg = "Do you need to get a device onto the network? I can help! \
             \n Simply first tell me the MAC address of the device you are replacing, and then the MAC address of the new device. \
-            \n\n For example: **_@MABBot old 11:22:33:44:55:66_** \
-            \n\n You can also take a picture of the MAC address label on your device! Simply put it in this room addressed to @MABBot and make sure you let me know whether it is the old or new device. \
+            \n\n For example: **_@"+botName+" old 11:22:33:44:55:66_** \
+            \n\n You can also take a picture of the MAC address label on your device! Simply put it in this room addressed to @"+botName+" and make sure you let me know whether it is the old or new device. \
             \n Having problems? Check out my [\[GitHub\]](https://github.com/cisco-gve/industrial-equipment-onboarding) "
             
             payload = {"roomId":roomID,"markdown":helpmsg}
