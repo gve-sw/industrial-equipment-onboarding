@@ -69,7 +69,8 @@ password = settings.password
 botToken = settings.botToken
 botID = settings.botID
 
-mongoAddr = settings.mongoAddr
+# DNS address of the mongo DB with default port of 27017
+mongoAddr = 'database:27017'
 
 
 # Invoke ISEAPI class giving the server IP, username and password
