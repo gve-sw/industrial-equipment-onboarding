@@ -32,7 +32,9 @@ MAC Addresses can be entered manually as text, or can be uploaded as an image ta
 
 1. Copy the Google Cloud Platform service account key JSON file into `/python`
 
-1. Edit `/python/Dockerfile` and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json` where the .json filename matches the name of the file you copied into /python.
+1. Edit `/python/Dockerfile` and change the line: `ENV GOOGLE_APPLICATION_CREDENTIALS gcp-project-name-54645fvcsdf43.json`. Change the line so that gcp-project-name-XXXXX.json is instead the name of the file you copied into /python.
+
+1. Open your terminal application. 
 
 1. Run `docker-compose build` from the project root directory
 
