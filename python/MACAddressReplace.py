@@ -170,17 +170,33 @@ def oldMacCheck(justText, roomID):
     if macFind:
 
 
+        print('The found MAC is '+macFind.group(0))
         oldMac = macFind.group(0)
         # Take input MAC and transform to data that ISE will accept
         transMac = ISEReq.MacTransform(oldMac)
         print (transMac)
+        
         # Get all endpoints currently in ISE database
+        rawISEEndpoints = []
         root = ISEReq.GetAllEndpoints()
+        rawISEEndpoints.append(root)
+        more = True
+        while more == True:
+            if 'nextPage' in root['SearchResult']:
+                root = ISEReq.GetNextEndpoints(root['SearchResult']['nextPage']['href'])
+                rawISEEndpoints.append(root)
+                more = True
+            else:
+                more = False
+
+
         deviceFound = False
         deviceDict = {}
 
-        for endpoint in root['SearchResult']['resources']:
-            deviceDict[endpoint['name']] = endpoint['id']
+        
+        for pages in rawISEEndpoints:
+            for endpoint in pages['SearchResult']['resources']:
+                deviceDict[endpoint['name']] = endpoint['id']
 
         """
         for resources in root:

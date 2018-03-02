@@ -130,7 +130,12 @@ class ISEAPI(object):
 		"""
 		Retrieve all endpoints in the ISE deployment
 		"""
-		myurl = "https://"+self.server+":9060/ers/config/endpoint"
+		myurl = "https://"+self.server+":9060/ers/config/endpoint?size=100"
+		headers = {'accept': "application/json"}
+		return self.ISEGETJ(myurl, headers)
+
+	def GetNextEndpoints(self, page):
+		myurl = page
 		headers = {'accept': "application/json"}
 		return self.ISEGETJ(myurl, headers)
 		
